@@ -97,5 +97,19 @@ LIMIT 5;
 -- 4     Germany
 
 -- 11
-SELECT ArtistId, count(*) FROM albums
+SELECT ArtistId, count(*) AS '앨범 수' FROM albums
 GROUP BY ArtistId
+ORDER BY [앨범 수] DESC
+LIMIT 1;
+-- ArtistId  앨범 수
+-- --------  ----
+-- 90        21
+
+-- 12
+SELECT ArtistId, (SELECT count(*) FROM albums
+GROUP BY ArtistId) AS '앨범 수' FROM albums
+GROUP BY ArtistId
+ORDER BY [앨범 수] DESC;
+
+
+
