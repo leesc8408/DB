@@ -66,12 +66,3 @@ GROUP BY last_name;
 
 
 
-SELECT * FROM users LIMIT 10;
-1,길동,홍,600,충청도,010-0000-0000
-.headers ON
-id,first_name,last_name,age,country,phone
-1,길동,홍,600,충청도,010-0000-0000
-.mode column
-id,first_name,last_name,age,country,phone
------------------------------------------
-1,길동,홍,600,충청도,010-0000-0000
