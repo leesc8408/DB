@@ -97,7 +97,8 @@ LIMIT 5;
 -- 4     Germany
 
 -- 11
-SELECT ArtistId, count(*) AS '앨범 수' FROM albums
+SELECT ArtistId, count(*) AS '앨범 수' 
+FROM albums
 GROUP BY ArtistId
 ORDER BY [앨범 수] DESC
 LIMIT 1;
@@ -106,10 +107,23 @@ LIMIT 1;
 -- 90        21
 
 -- 12
-SELECT ArtistId, (SELECT count(*) FROM albums
-GROUP BY ArtistId) AS '앨범 수' FROM albums
+SELECT ArtistId, count(*) AS '앨범 수' 
+FROM albums
 GROUP BY ArtistId
+HAVING [앨범 수] > 10
 ORDER BY [앨범 수] DESC;
+-- ArtistId  앨범 수
+-- --------  ----
+-- 90        21
+-- 22        14
+-- 58        11
 
+-- 13
+SELECT count(*) AS '고객 수', Country, State
+FROM customers
+GROUP BY Country, State
+HAVING State IS NOT NULL
+ORDER BY [고객 수], Country DESC
+LIMIT 5;
 
-
+SELECT * FROM customers LIMIT 5;
